@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.ProfileFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/nickname_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_black"
+            android:paddingLeft="21sp"
+            android:paddingTop="88sp"
+            android:text="Nickname"
+            android:textColor="@color/secondaryColor"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/name_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:paddingLeft="21sp"
+            android:text="Name"
+            android:textColor="@color/secondaryColor"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:paddingLeft="21sp"
+            android:paddingTop="24sp"
+            android:text="Email:"
+            android:textColor="@color/secondaryColor"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/email_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="21sp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="placeholder@email.com"
+            android:textColor="@color/disabledColor"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/edit_account_button"
+            android:layout_width="185sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="300sp"
+            android:background="@drawable/disabled_button"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Editar Conta"
+            android:textColor="@color/disabledColor"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/delete_account_button"
+            android:layout_width="185sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/disabled_button"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Remover Conta"
+            android:textColor="@color/cancelColor"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+</FrameLayout>

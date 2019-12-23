@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "637325472574",
+    "firebase_url": "https://ringz-4a8bf.firebaseio.com",
+    "project_id": "ringz-4a8bf",
+    "storage_bucket": "ringz-4a8bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637325472574:android:dc132699963312842c726f",
+        "android_client_info": {
+          "package_name": "com.example.ringz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "637325472574-sbf5tqirakukmol181ondessmavfu37b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ringz",
+            "certificate_hash": "9cdaf1fc49be4d9895cb5e137fbe7b0d2cd424fd"
+          }
+        },
+        {
+          "client_id": "637325472574-0nvjhta076l340utv1qbji1g0jvcp7t6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARAu8FDC2Ee_SlOx0ruzhaT36p0ZoNcP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "637325472574-0nvjhta076l340utv1qbji1g0jvcp7t6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
