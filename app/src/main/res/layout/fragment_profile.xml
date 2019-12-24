@@ -72,7 +72,7 @@
             android:layout_width="185sp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/disabled_button"
+            android:background="@drawable/cancel_button"
             android:fontFamily="@font/poppins_medium"
             android:text="Remover Conta"
             android:textColor="@color/cancelColor"

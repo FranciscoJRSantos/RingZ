@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".views.HomeFragment"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/house_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18sp"
+            android:layout_marginTop="88dp"
+            android:fontFamily="@font/poppins_black"
+            android:text="Casa X"
+            android:textColor="@color/secondaryColor"
+            android:textSize="24sp" />
+
+        <ToggleButton
+            android:layout_width="167sp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18sp"
+            android:layout_marginTop="31sp"
+            android:fontFamily="@font/poppins_black"
+            android:textColor="@color/primaryColor"
+            android:background="@drawable/toggle_selector"
+            android:textOff="Casa Aberta"
+            android:textOn="Casa fechada"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:paddingStart="18sp"
+            android:text="Membros da Casa:"
+            android:textColor="@color/secondaryColor"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/add_member"
+            android:layout_width="185sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/black_button"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Adicionar Membro"
+            android:textColor="@color/secondaryColor"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/remove_member"
+            android:layout_width="185sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/cancel_button"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Remover Membro"
+            android:textColor="@color/cancelColor"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:paddingStart="18sp"
+            android:text="Visitantes da Casa:"
+            android:textColor="@color/secondaryColor"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/remove_visitors"
+            android:layout_width="185sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/cancel_button"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Remover Membro"
+            android:textColor="@color/cancelColor"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:paddingStart="18sp"
+            android:text="Visitantes da Casa:"
+            android:textColor="@color/secondaryColor"
+            android:textSize="18sp" />
+
+        <Button
+            android:layout_width="185sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/black_button"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Partilhar Código"
+            android:textColor="@color/secondaryColor"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/edit_house"
+            android:layout_width="185sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="75sp"
+            android:background="@drawable/disabled_button"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Editar Casa"
+            android:textColor="@color/disabledColor"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/remove_house"
+            android:layout_width="185sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/cancel_button"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Remover House"
+            android:textColor="@color/cancelColor"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</ScrollView>
