@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".views.LoginFragment">
-
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,11 +10,10 @@
         android:paddingEnd="21sp"
         android:paddingTop="88sp"
         android:paddingBottom="20sp"
-        android:text="Entrar no RingZ"
+        android:text="Criar Casa"
         android:textColor="@color/secondaryColor"
         android:textSize="24sp"
         android:textStyle="bold" />
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,12 +22,11 @@
         android:paddingStart="21sp"
         android:paddingEnd="21sp"
         android:paddingBottom="8sp"
-        android:text="Email:"
+        android:text="Nome para a casa: "
         android:textColor="@color/secondaryColor"
         android:textSize="18sp" />
-
     <EditText
-        android:id="@+id/email_field"
+        android:id="@+id/house_code_field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -44,51 +38,27 @@
         android:textColor="@color/secondaryColor"
         android:textSize="18sp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:fontFamily="@font/poppins_medium"
-        android:paddingStart="21sp"
-        android:paddingEnd="21sp"
-        android:paddingBottom="8sp"
-        android:text="Palavra-passe:"
-        android:textColor="@color/secondaryColor"
-        android:textSize="18sp" />
-
-    <EditText
-        android:id="@+id/password_field"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:fontFamily="@font/poppins_medium"
-        android:inputType="textPassword"
-        android:paddingStart="21sp"
-        android:paddingEnd="21sp"
-        android:paddingBottom="8sp"
-        android:textColor="@color/secondaryColor"
-        android:textSize="18sp" />
-
     <Button
-        android:id="@+id/confirm_button"
+        android:id="@+id/add_visitHouse_button"
         android:layout_width="185sp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/confirm_button"
+        android:layout_marginTop="20sp"
+        android:background="@drawable/transparent_bg_bordered_confirm"
         android:fontFamily="@font/poppins_medium"
-        android:layout_marginTop="270sp"
-        android:text="Entrar"
+        android:text="Criar casa"
         android:textColor="@color/confirmColor"
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/cancel_button"
         android:layout_width="185sp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/disabled_button"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/transparent_bg_bordered_cancel"
         android:fontFamily="@font/poppins_medium"
-        android:text="Registo"
-        android:textColor="@color/disabledColor"
+        android:text="Cancelar"
+        android:textColor="@color/cancelColor"
         android:textSize="18sp" />
 </LinearLayout>
