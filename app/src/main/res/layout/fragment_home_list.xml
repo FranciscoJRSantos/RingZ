@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".views.HomeFragment"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/house1_name"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18sp"
+            android:layout_marginTop="88dp"
+            android:fontFamily="@font/poppins_black"
+            android:text="Não existe nenhuma casa criada."
+            android:textColor="@color/secondaryColor"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/add_visitHouse"
+            android:layout_width="185sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/transparent_bg_bordered_confirm"
+            android:fontFamily="@font/poppins_medium"
+            android:padding="10sp"
+            android:text="Criar Casa"
+            android:textColor="@color/confirmColor"
+            android:textSize="18sp" />
+    </LinearLayout>
+</ScrollView>

@@ -6,12 +6,10 @@
     android:layout_width="match_parent"
     android:fillViewport="true"
     android:layout_height="match_parent">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
-
         <TextView
             android:id="@+id/house_name"
             android:layout_width="wrap_content"
@@ -22,28 +20,27 @@
             android:text="Casa X"
             android:textColor="@color/secondaryColor"
             android:textSize="24sp" />
-
         <ToggleButton
-            android:layout_width="167sp"
+            android:layout_width="375dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="18sp"
-            android:layout_marginTop="31sp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/poppins_black"
             android:textColor="@color/primaryColor"
             android:background="@drawable/toggle_selector"
-            android:textOff="Casa Aberta"
-            android:textOn="Casa fechada"
+            android:textOff="Abrir Casa"
+            android:textOn="Fechar Casa"
             android:textSize="18sp" />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
             android:paddingStart="18sp"
+            android:paddingEnd="18sp"
             android:text="Membros da Casa:"
+            android:layout_marginTop="20dp"
             android:textColor="@color/secondaryColor"
             android:textSize="18sp" />
-
         <Button
             android:id="@+id/add_member"
             android:layout_width="185sp"
@@ -53,8 +50,8 @@
             android:fontFamily="@font/poppins_medium"
             android:text="Adicionar Membro"
             android:textColor="@color/secondaryColor"
+            android:layout_marginTop="20dp"
             android:textSize="18sp" />
-
         <Button
             android:id="@+id/remove_member"
             android:layout_width="185sp"
@@ -65,16 +62,16 @@
             android:text="Remover Membro"
             android:textColor="@color/cancelColor"
             android:textSize="18sp" />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
             android:paddingStart="18sp"
+            android:paddingEnd="18sp"
             android:text="Visitantes da Casa:"
             android:textColor="@color/secondaryColor"
+            android:layout_marginTop="20dp"
             android:textSize="18sp" />
-
         <Button
             android:id="@+id/remove_visitors"
             android:layout_width="185sp"
@@ -82,19 +79,20 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/cancel_button"
             android:fontFamily="@font/poppins_medium"
-            android:text="Remover Membro"
+            android:text="Remover Acessos"
             android:textColor="@color/cancelColor"
+            android:layout_marginTop="20dp"
             android:textSize="18sp" />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
             android:paddingStart="18sp"
-            android:text="Visitantes da Casa:"
+            android:paddingEnd="18sp"
+            android:text="Código de Casa:"
+            android:layout_marginTop="20dp"
             android:textColor="@color/secondaryColor"
             android:textSize="18sp" />
-
         <Button
             android:layout_width="185sp"
             android:layout_height="wrap_content"
@@ -103,20 +101,19 @@
             android:fontFamily="@font/poppins_medium"
             android:text="Partilhar Código"
             android:textColor="@color/secondaryColor"
+            android:layout_marginTop="20dp"
             android:textSize="18sp" />
-
         <Button
             android:id="@+id/edit_house"
             android:layout_width="185sp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="75sp"
+            android:layout_marginTop="40dp"
             android:background="@drawable/disabled_button"
             android:fontFamily="@font/poppins_medium"
             android:text="Editar Casa"
             android:textColor="@color/disabledColor"
             android:textSize="18sp" />
-
         <Button
             android:id="@+id/remove_house"
             android:layout_width="185sp"
@@ -124,10 +121,9 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/cancel_button"
             android:fontFamily="@font/poppins_medium"
-            android:text="Remover House"
+            android:layout_marginBottom="20dp"
+            android:text="Remover Casa"
             android:textColor="@color/cancelColor"
             android:textSize="18sp" />
-
     </LinearLayout>
-
 </ScrollView>

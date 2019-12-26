@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".views.HomeFragment"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/house1_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18sp"
+            android:layout_marginTop="88dp"
+            android:fontFamily="@font/poppins_black"
+            android:text="Casa X"
+            android:textColor="@color/secondaryColor"
+            android:textSize="24sp" />
+        <TextView
+            android:id="@+id/house1_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18sp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Casa Aberta"
+            android:textColor="@color/confirmColor"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/house2_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18sp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_black"
+            android:text="Casa X"
+            android:textColor="@color/secondaryColor"
+            android:textSize="24sp" />
+        <TextView
+            android:id="@+id/house2_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18sp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Casa Fechada"
+            android:textColor="@color/cancelColor"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/house3_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18sp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_black"
+            android:text="Casa X"
+            android:textColor="@color/secondaryColor"
+            android:textSize="24sp" />
+        <TextView
+            android:id="@+id/house3_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18sp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Casa Fechada"
+            android:textColor="@color/cancelColor"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/house4_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18sp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_black"
+            android:text="Casa X"
+            android:textColor="@color/secondaryColor"
+            android:textSize="24sp" />
+        <TextView
+            android:id="@+id/house4_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18sp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Casa Fechada"
+            android:textColor="@color/cancelColor"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/add_visitHouse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/transparent_bg_bordered_confirm"
+            android:fontFamily="@font/poppins_medium"
+            android:padding="10sp"
+            android:text="Adicionar Nova Casa"
+            android:textColor="@color/confirmColor"
+            android:textSize="18sp" />
+    </LinearLayout>
+</ScrollView>
