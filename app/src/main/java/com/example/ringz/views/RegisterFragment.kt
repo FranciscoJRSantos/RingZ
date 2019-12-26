@@ -51,7 +51,8 @@ class RegisterFragment : Fragment(), View.OnClickListener {
                 if (task.isSuccessful) {
                     val user : FirebaseUser? = auth.currentUser
                     onboardingActivity.updateUI(user)
-                    User(username, email, nickname).save()
+                    if (user != null)
+                        User(user.uid, username, email, nickname).save()
                 } else {
                     Toast.makeText(onboardingActivity.baseContext, "Registration failed.", Toast.LENGTH_SHORT).show()
                     onboardingActivity.updateUI(null)
