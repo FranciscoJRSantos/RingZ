@@ -16,4 +16,8 @@
             android:id="@+id/nav_visit"
             android:title="Visitar Casa" />
     </group>
+
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Logout" />
 </menu>
