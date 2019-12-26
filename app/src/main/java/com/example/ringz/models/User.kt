@@ -5,17 +5,15 @@ import com.google.firebase.database.FirebaseDatabase
 
 
 
-class User(name: String, email: String, password: String, nickname: String) {
+class User(name: String, email: String, nickname: String) {
     var name: String? = null
     var email: String? = null
-    var password: String? = null
     var nickname: String? = null
     var houseId: Integer? = null
 
     init {
         this.name = name
         this.email = email
-        this.password = password
         this.nickname = nickname
     }
 

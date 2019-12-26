@@ -39,7 +39,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/email_field"
+            android:id="@+id/register_email_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -64,7 +64,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/name_field"
+            android:id="@+id/register_name_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -89,7 +89,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/nickname_field"
+            android:id="@+id/register_nickname_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -114,7 +114,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/password_field"
+            android:id="@+id/register_password_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -139,7 +139,7 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/confirm_password_field"
+            android:id="@+id/register_confirm_password_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -163,7 +163,7 @@
             android:textSize="18sp" />
 
         <Button
-            android:id="@+id/login_button"
+            android:id="@+id/register_login_button"
             android:layout_width="185sp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
