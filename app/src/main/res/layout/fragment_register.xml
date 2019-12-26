@@ -140,7 +140,7 @@
             android:textSize="18sp" />
 
         <Button
-            android:id="@+id/confirm_button"
+            android:id="@+id/create_account_button"
             android:layout_marginTop="18sp"
             android:layout_width="185sp"
             android:layout_height="wrap_content"
