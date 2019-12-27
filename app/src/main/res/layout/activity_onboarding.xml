@@ -26,8 +26,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="18sp"
             android:fontFamily="@font/poppins_medium"
-            android:layout_marginStart="137sp"
+            android:layout_marginStart="120sp"
             android:onClick="onRegisterClick"
             android:text="Registar"/>
 
@@ -36,16 +37,48 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
-            android:layout_marginStart="18sp"
+            android:layout_marginEnd="18sp"
             android:layout_marginTop="24dp"
             android:onClick="onLoginClick"
             android:text="Entrar"/>
     </LinearLayout>
 
 
-    <FrameLayout
+    <RelativeLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="190dp"
+            android:layout_height="530dp"
+            android:layout_alignParentBottom = "true"
+            android:baselineAlignBottom="false"
+            android:src="@drawable/walking_guy" />
+        <TextView
+            android:id="@+id/main_title"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="235dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/poppins_black"
+            android:text="A campanhia digital para a tua casa."
+            android:textAllCaps="true"
+            android:textColor="@color/secondaryColor"
+            android:textSize="30sp" />
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="385dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="A campanhia digital que te vai ajudar a abrir a porta e gerir os convidados da tua
+casa."
+            android:textColor="@color/secondaryColor"
+            android:textSize="18sp" />
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

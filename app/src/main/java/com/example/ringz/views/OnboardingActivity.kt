@@ -29,7 +29,6 @@ class OnboardingActivity : AppCompatActivity(), View.OnClickListener {
     override fun onStart() {
         super.onStart()
 
-
         val currentUser : FirebaseUser? = auth.currentUser
         updateUI(currentUser)
     }
