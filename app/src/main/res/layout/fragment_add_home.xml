@@ -14,6 +14,7 @@
         android:textColor="@color/secondaryColor"
         android:textSize="24sp"
         android:textStyle="bold" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,21 +26,25 @@
         android:text="Nome para a casa: "
         android:textColor="@color/secondaryColor"
         android:textSize="18sp" />
+
     <EditText
-        android:id="@+id/house_code_field"
+        android:id="@+id/house_name_field"
+        android:labelFor="@id/house_name_field"
+        android:selectAllOnFocus="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:fontFamily="@font/poppins_medium"
-        android:inputType="textEmailAddress"
         android:paddingStart="21sp"
         android:paddingEnd="21sp"
         android:paddingBottom="8sp"
         android:textColor="@color/secondaryColor"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:autofillHints="Nome da casa"
+        android:inputType="textCapSentences|textAutoCorrect" />
 
     <Button
-        android:id="@+id/add_visitHouse_button"
+        android:id="@+id/add_house_button"
         android:layout_width="185sp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
