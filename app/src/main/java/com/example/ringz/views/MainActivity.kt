@@ -1,6 +1,7 @@
 package com.example.ringz.views
 
 import android.content.Intent
+import android.os.AsyncTask
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -18,7 +19,7 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
     private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
     private lateinit var userRef : DatabaseReference
@@ -36,6 +37,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         homeRef = database.getReference("homes").child(auth.currentUser?.uid!!)
 
         nav_view.setNavigationItemSelectedListener(this)
+        nav_logout.setOnClickListener(this)
 
         val toggle = ActionBarDrawerToggle( this, drawer_layout,
             R.string.navigation_drawer_open,
@@ -84,7 +86,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     renderFragment(HomeListFragment())
                 }
             }
-            R.id.nav_logout -> logOut()
         }
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
@@ -106,5 +107,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     fun renderFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit()
+    }
+
+    override fun onClick(v: View) {
+        when(v.id) {
+            R.id.nav_logout -> logOut()
+        }
     }
 }
