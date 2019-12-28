@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    private lateinit var auth: FirebaseAuth
+    public lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
     private lateinit var userRef : DatabaseReference
     private lateinit var homeRef : DatabaseReference
@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-    private fun logOut() {
+    fun logOut() {
         auth.signOut()
         val intent = Intent(this, OnboardingActivity::class.java)
         startActivity(intent)
