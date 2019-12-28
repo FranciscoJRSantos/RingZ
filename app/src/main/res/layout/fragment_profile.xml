@@ -10,68 +10,46 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/nickname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_black"
-            android:paddingStart="21sp"
-            android:paddingEnd="21sp"
-            android:paddingTop="22sp"
-            android:text="Nickname"
-            android:textColor="@color/secondaryColor"
-            android:textSize="24sp"
-            android:textStyle="bold" />
         <ViewSwitcher
             android:id="@+id/nickname_switcher"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8sp" >
+            android:layout_height="46dp"
+            android:layout_marginTop="8sp">
+
             <TextView
                 android:id="@+id/nickname_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_black"
                 android:paddingStart="21sp"
-                android:paddingEnd="21sp"
                 android:paddingTop="5sp"
+                android:paddingEnd="21sp"
+                android:text="Nickname"
                 android:textColor="@color/secondaryColor"
                 android:textSize="24sp" />
 
 
             <EditText
                 android:id="@+id/edit_nickname_field"
-                android:selectAllOnFocus="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:fontFamily="@font/poppins_medium"
+                android:inputType="textCapSentences|textAutoCorrect"
                 android:paddingStart="21sp"
                 android:paddingEnd="21sp"
                 android:paddingBottom="8sp"
+                android:selectAllOnFocus="true"
                 android:textColor="@color/secondaryColor"
-                android:textSize="18sp"
-                android:inputType="textCapSentences|textAutoCorrect" />
+                android:textSize="24sp" />
         </ViewSwitcher>
-
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_black"
-            android:paddingStart="21sp"
-            android:paddingEnd="21sp"
-            android:paddingTop="21sp"
-            android:text="Nome"
-            android:textColor="@color/secondaryColor"
-            android:textSize="24sp"
-            android:textStyle="bold" />
 
         <ViewSwitcher
             android:id="@+id/name_switcher"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8sp" >
+            android:layout_height="37dp"
+            android:layout_marginTop="8sp">
+
             <TextView
                 android:id="@+id/name_field"
                 android:layout_width="match_parent"
@@ -86,22 +64,31 @@
 
             <EditText
                 android:id="@+id/edit_name_field"
-                android:selectAllOnFocus="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:fontFamily="@font/poppins_medium"
+                android:inputType="textCapSentences|textAutoCorrect"
                 android:paddingStart="21sp"
                 android:paddingEnd="21sp"
                 android:paddingBottom="8sp"
+                android:selectAllOnFocus="true"
                 android:textColor="@color/secondaryColor"
-                android:textSize="18sp"
-                android:inputType="textCapSentences|textAutoCorrect" />
+                android:textSize="18sp" />
         </ViewSwitcher>
 
-
-
-
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="21sp"
+            android:paddingEnd="21sp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Email: "
+            android:textColor="@color/secondaryColor"
+            android:textSize="18sp"
+            android:textStyle="bold" />
         <TextView
             android:id="@+id/email_field"
             android:layout_width="match_parent"
@@ -114,21 +101,21 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-
         <ViewSwitcher
             android:id="@+id/edit_profile_button_switcher"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8sp" >
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20sp">
+
             <Button
                 android:id="@+id/edit_account_button"
                 android:layout_width="185sp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="250sp"
                 android:background="@drawable/disabled_button"
                 android:fontFamily="@font/poppins_medium"
-                android:text="Editar Conta"
+                android:text="Editar Perfil"
                 android:textColor="@color/disabledColor"
                 android:textSize="18sp" />
 
@@ -137,7 +124,7 @@
                 android:layout_width="185sp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="250sp"
+                android:layout_marginTop="20sp"
                 android:background="@drawable/disabled_button"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Guardar Alterações"
@@ -155,6 +142,5 @@
             android:text="Remover Conta"
             android:textColor="@color/cancelColor"
             android:textSize="18sp" />
-
     </LinearLayout>
 </FrameLayout>
