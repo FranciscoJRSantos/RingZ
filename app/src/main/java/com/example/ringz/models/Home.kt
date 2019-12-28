@@ -1,15 +1,24 @@
 package com.example.ringz.models
 
 import android.media.Ringtone
+import android.media.RingtoneManager
+import android.provider.Settings
+import com.google.firebase.database.FirebaseDatabase
 
-class Home(uuid: String, name: String, ringtone: Ringtone) {
-    var uuid: String? = null
+class Home(uuid: String, name: String) {
+    var uuid: String = uuid
     var name: String? = null
-    var ringtone: Ringtone? = null
 
     init {
-        this.uuid = uuid
         this.name = name
-        this.ringtone = ringtone
+    }
+
+    constructor() : this("", "")
+
+    fun save() {
+        val database = FirebaseDatabase.getInstance()
+        val homesRef = database.getReference("homes")
+
+        homesRef.child(uuid).setValue(this)
     }
 }

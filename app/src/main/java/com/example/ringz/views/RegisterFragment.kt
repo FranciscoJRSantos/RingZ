@@ -12,24 +12,18 @@ import com.example.ringz.R
 import com.example.ringz.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_register.*
 
 
 class RegisterFragment : Fragment(), View.OnClickListener {
     private lateinit var auth: FirebaseAuth
-    private lateinit var database: FirebaseDatabase
     private lateinit var onboardingActivity: OnboardingActivity
-    private lateinit var usersRef : DatabaseReference
 
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
         val view = inflater.inflate(R.layout.fragment_register, container, false)
 
         onboardingActivity = (this.activity as OnboardingActivity?)!!
         auth = FirebaseAuth.getInstance()
-        database = FirebaseDatabase.getInstance()
-        usersRef = database.getReference("users")
 
         return view
     }
@@ -41,13 +35,12 @@ class RegisterFragment : Fragment(), View.OnClickListener {
         create_account_button.setOnClickListener(this)
     }
 
-
     private fun createAccount(email: String, password: String, username: String, nickname: String) {
 
         if (!validateRegisterForm()) {
             return
         }
-        auth.createUserWithEmailAndPassword(email, password) .addOnCompleteListener(onboardingActivity) { task ->
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(onboardingActivity) { task ->
                 if (task.isSuccessful) {
                     val user : FirebaseUser? = auth.currentUser
                     onboardingActivity.updateUI(user)
