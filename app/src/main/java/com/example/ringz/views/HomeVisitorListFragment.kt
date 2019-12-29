@@ -36,13 +36,17 @@ class HomeVisitorListFragment : Fragment(), View.OnClickListener, AdapterView.On
 
         if (user.houseList.isNotEmpty()) {
 
-            val listItems = user.houseList.map { home -> home.name }
+            val listNames = user.houseList.map { home -> home.name }
+            val listStatus = user.houseList.map { home -> home.openStatus }
+            val listHouses = user.houseList.map {home -> home.uuid}
 
-            val adapter = ArrayAdapter(mainActivity, android.R.layout.simple_list_item_1, listItems)
+            val adapter = MyListAdapter(mainActivity,listNames,listStatus,listHouses)
+
 
             houses_list.adapter = adapter
-            houses_list.setOnItemClickListener(this)
-        }
+            houses_list.setOnItemClickListener(this)        }
+
+
 
     }
 
