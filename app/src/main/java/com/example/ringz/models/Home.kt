@@ -8,6 +8,7 @@ import com.google.firebase.database.FirebaseDatabase
 class Home(uuid: String, name: String) {
     var uuid: String = uuid
     var name: String? = null
+    var openStatus: Boolean = true
 
     init {
         this.name = name

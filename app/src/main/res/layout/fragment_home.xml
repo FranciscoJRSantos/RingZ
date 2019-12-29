@@ -186,19 +186,9 @@
             android:layout_marginTop="20dp"
             android:textSize="18sp" />
         <Button
-            android:id="@+id/edit_house"
-            android:layout_width="185sp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/disabled_button"
-            android:fontFamily="@font/poppins_medium"
-            android:text="Editar Casa"
-            android:textColor="@color/disabledColor"
-            android:textSize="18sp" />
-        <Button
             android:id="@+id/remove_house"
             android:layout_width="185sp"
+            android:layout_marginTop="80dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/cancel_button"

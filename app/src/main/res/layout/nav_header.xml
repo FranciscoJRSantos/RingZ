@@ -3,16 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingStart="37sp"
+    android:paddingBottom="40sp"
     tools:context=".views.HeaderFragment">
 
         <Button
-            android:id="@+id/header_button"
+            android:id="@+id/nav_header_button"
             android:layout_width="48dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
             android:layout_marginTop="24dp"
-            android:background="@drawable/ic_dehaze_black_24dp" />
-
+            android:background="@drawable/ic_close_black_24dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -22,7 +23,7 @@
             android:paddingStart="18sp"
             android:paddingEnd="18sp"
             android:textSize="18sp"
-            android:textColor="@color/secondaryColor"
+            android:textColor="@color/primaryColor"
             android:text="RingZ" />
 
 </LinearLayout>

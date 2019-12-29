@@ -8,13 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import com.example.ringz.R
 import com.example.ringz.models.Home
 import kotlinx.android.synthetic.main.fragment_home.*
-
-
-
 
 
 /**
@@ -61,6 +59,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
     private fun onHouseNameClick(view : View) {
         home_switcher.showNext()
         button_switcher.showNext()
+        showKeyboard(house_name_field)
     }
 
     override fun onClick(v: View) {
@@ -76,5 +75,13 @@ class HomeFragment : Fragment(), View.OnClickListener {
             val inputManager: InputMethodManager = mainActivity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputManager.hideSoftInputFromWindow(view.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
         }
+    }
+
+    private fun showKeyboard(editTextField: EditText) {
+        editTextField.requestFocus();
+        editTextField.postDelayed({
+            val keyboard: InputMethodManager = mainActivity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            keyboard.showSoftInput(editTextField,0);
+        }, 200)
     }
 }
