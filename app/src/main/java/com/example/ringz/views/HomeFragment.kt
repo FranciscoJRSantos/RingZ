@@ -41,6 +41,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
         edit_name_button.setOnClickListener(this)
         save_name_button.setOnClickListener(this)
+        remove_house.setOnClickListener(this)
     }
 
     private fun onHouseEditClick(view : View) {
@@ -62,10 +63,17 @@ class HomeFragment : Fragment(), View.OnClickListener {
         showKeyboard(house_name_field)
     }
 
+    private fun onHouseDeleteClick(view: View) {
+        mainActivity.user!!.removeHouse()
+        home?.delete()
+        mainActivity.renderFragment(ProfileFragment())
+    }
+
     override fun onClick(v: View) {
         when(v.id) {
             R.id.edit_name_button -> onHouseNameClick(v)
             R.id.save_name_button -> onHouseEditClick(v)
+            R.id.remove_house -> onHouseDeleteClick(v)
         }
     }
 

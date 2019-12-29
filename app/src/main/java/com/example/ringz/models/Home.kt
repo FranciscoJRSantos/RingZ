@@ -22,4 +22,11 @@ class Home(uuid: String, name: String) {
 
         homesRef.child(uuid).setValue(this)
     }
+
+    fun delete() {
+        val database = FirebaseDatabase.getInstance()
+        val homesRef = database.getReference("homes")
+
+        homesRef.child(uuid).setValue(null)
+    }
 }
