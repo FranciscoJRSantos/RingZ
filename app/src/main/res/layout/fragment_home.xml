@@ -92,6 +92,7 @@
 
 
         <ToggleButton
+            android:id="@+id/toggle_state"
             android:layout_width="375dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="18sp"
