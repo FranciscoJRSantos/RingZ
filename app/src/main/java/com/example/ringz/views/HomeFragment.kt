@@ -4,6 +4,7 @@ package com.example.ringz.views
 import android.content.Context
 import android.os.Bundle
 import android.text.Editable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,6 +42,15 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
         edit_name_button.setOnClickListener(this)
         save_name_button.setOnClickListener(this)
+        remove_house.setOnClickListener(this)
+        toggle_state.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                onToggleChange(isChecked)
+            } else {
+                onToggleChange(isChecked)
+            }
+        }
+
     }
 
     private fun onHouseEditClick(view : View) {
@@ -62,10 +72,22 @@ class HomeFragment : Fragment(), View.OnClickListener {
         showKeyboard(house_name_field)
     }
 
+    private fun onHouseDeleteClick(view: View) {
+        mainActivity.user!!.removeHouse()
+        home?.delete()
+        mainActivity.renderFragment(ProfileFragment())
+    }
+
+    private fun onToggleChange(isChecked : Boolean) {
+        home?.toggleState(isChecked)
+        Log.d("state", isChecked.toString())
+    }
+
     override fun onClick(v: View) {
         when(v.id) {
             R.id.edit_name_button -> onHouseNameClick(v)
             R.id.save_name_button -> onHouseEditClick(v)
+            R.id.remove_house -> onHouseDeleteClick(v)
         }
     }
 
