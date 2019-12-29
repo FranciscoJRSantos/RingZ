@@ -4,6 +4,7 @@ package com.example.ringz.views
 import android.content.Context
 import android.os.Bundle
 import android.text.Editable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,8 @@ import androidx.fragment.app.Fragment
 import com.example.ringz.R
 import com.example.ringz.models.Home
 import kotlinx.android.synthetic.main.fragment_home.*
+import android.widget.CompoundButton
+import android.widget.Toast
 
 
 /**
@@ -42,6 +45,14 @@ class HomeFragment : Fragment(), View.OnClickListener {
         edit_name_button.setOnClickListener(this)
         save_name_button.setOnClickListener(this)
         remove_house.setOnClickListener(this)
+        toggle_state.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                onToggleChange(isChecked)
+            } else {
+                onToggleChange(isChecked)
+            }
+        }
+
     }
 
     private fun onHouseEditClick(view : View) {
@@ -67,6 +78,11 @@ class HomeFragment : Fragment(), View.OnClickListener {
         mainActivity.user!!.removeHouse()
         home?.delete()
         mainActivity.renderFragment(ProfileFragment())
+    }
+
+    private fun onToggleChange(isChecked : Boolean) {
+        home?.toggleState(isChecked)
+        Log.d("state", isChecked.toString())
     }
 
     override fun onClick(v: View) {
