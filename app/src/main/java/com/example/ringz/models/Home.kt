@@ -1,18 +1,11 @@
 package com.example.ringz.models
 
-import android.media.Ringtone
-import android.media.RingtoneManager
-import android.provider.Settings
 import com.google.firebase.database.FirebaseDatabase
 
 class Home(uuid: String, name: String) {
     var uuid: String = uuid
-    var name: String? = null
+    var name: String = name
     var openStatus: Boolean = true
-
-    init {
-        this.name = name
-    }
 
     constructor() : this("", "")
 
