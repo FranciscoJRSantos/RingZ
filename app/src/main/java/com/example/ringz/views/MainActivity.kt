@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 
+
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
     private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
@@ -107,7 +108,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-    private fun logOut() {
+    fun logOut() {
         auth.signOut()
         val intent = Intent(this, OnboardingActivity::class.java)
         startActivity(intent)

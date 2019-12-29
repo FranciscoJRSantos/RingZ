@@ -34,4 +34,11 @@ class User(uid: String, name: String, email: String, nickname: String) {
 
         usersRef.child(uid).setValue(this)
     }
+
+    fun deleteUser(){
+        val database = FirebaseDatabase.getInstance()
+        val usersRef = database.getReference("users")
+
+        usersRef.child(uid).setValue(null)
+    }
 }

@@ -4,6 +4,7 @@ package com.example.ringz.views
 import android.app.Activity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.ringz.R
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthException
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.fragment_login.*
 
@@ -48,6 +50,8 @@ class LoginFragment : Fragment() , View.OnClickListener {
                     val user : FirebaseUser? = auth.currentUser
                     onboardingActivity.updateUI(user)
                 } else {
+                    val e = task.exception
+                    Log.e("login activity", "failed authentication", e)
                     Toast.makeText(onboardingActivity.baseContext, "Authentication failed.",
                         Toast.LENGTH_SHORT).show()
                     onboardingActivity.updateUI(null)
