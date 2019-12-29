@@ -21,7 +21,7 @@
             android:textSize="24sp" />
 
         <Button
-            android:id="@+id/addHouse"
+            android:id="@+id/add_house_button"
             android:layout_width="185sp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
