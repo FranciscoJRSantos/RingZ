@@ -1,4 +1,4 @@
-package com.example.ringz.views
+package com.example.ringz.adapters
 
 import android.app.Activity
 import android.util.Log
@@ -6,11 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.example.ringz.R
+import com.example.ringz.views.MainActivity
 
-class MyListAdapter(private val context: Activity, private val title: List<String>, private val description: List<Boolean>, private val homeList: List<String>)
+class HouseListAdapter(private val context: Activity, private val title: List<String>, private val description: List<Boolean>, private val homeList: List<String>)
     : ArrayAdapter<String>(context, R.layout.custom_list, title) {
 
+    private lateinit var mainActivity : MainActivity
+
     override fun getView(position: Int, view: View?, parent: ViewGroup): View {
+        mainActivity = context as MainActivity
+
         val inflater = context.layoutInflater
         val rowView = inflater.inflate(R.layout.custom_list, null, true)
 
@@ -22,8 +27,7 @@ class MyListAdapter(private val context: Activity, private val title: List<Strin
 
         val ringButton = rowView.findViewById(R.id.ring_button) as Button
         ringButton.setOnClickListener {
-            Log.d("ringing","BZZZZZZZZZZZZZ")
-            //ringBell(homeList[position])
+            context.ringBell(homeList[position])
         }
 
         return rowView

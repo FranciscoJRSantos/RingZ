@@ -1,15 +1,13 @@
 package com.example.ringz.views
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.ListView
 import androidx.fragment.app.Fragment
 import com.example.ringz.R
+import com.example.ringz.adapters.HouseListAdapter
 import com.example.ringz.models.Home
 import com.example.ringz.models.User
 import kotlinx.android.synthetic.main.fragment_homevisitor_list.*
@@ -40,7 +38,12 @@ class HomeVisitorListFragment : Fragment(), View.OnClickListener, AdapterView.On
             val listStatus = user.houseList.map { home -> home.openStatus }
             val listHouses = user.houseList.map {home -> home.uuid}
 
-            val adapter = MyListAdapter(mainActivity,listNames,listStatus,listHouses)
+            val adapter = HouseListAdapter(
+                mainActivity,
+                listNames,
+                listStatus,
+                listHouses
+            )
 
 
             houses_list.adapter = adapter

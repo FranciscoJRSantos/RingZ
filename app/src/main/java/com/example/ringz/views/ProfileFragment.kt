@@ -17,9 +17,6 @@ import android.content.SharedPreferences
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.AuthCredential
 
-
-
-
 /**
  * A simple [Fragment] subclass.
  */
