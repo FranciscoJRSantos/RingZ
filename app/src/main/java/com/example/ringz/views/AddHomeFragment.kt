@@ -31,6 +31,7 @@ class AddHomeFragment : Fragment(), View.OnClickListener {
         var home : Home = Home(mainActivity.user?.uid!!, name)
         home.save()
         mainActivity.user!!.attachHouse(home.uuid)
+        mainActivity.home = home
         mainActivity.renderFragment(ProfileFragment())
     }
 

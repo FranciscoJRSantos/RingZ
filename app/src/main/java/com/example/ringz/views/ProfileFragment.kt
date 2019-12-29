@@ -9,16 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.ringz.R
 import com.example.ringz.models.User
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_profile.*
-import android.content.SharedPreferences
-import com.google.firebase.auth.EmailAuthProvider
-import com.google.firebase.auth.AuthCredential
-
-
-
 
 /**
  * A simple [Fragment] subclass.
@@ -45,7 +36,6 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         save_account_button.setOnClickListener(this)
         delete_account_button.setOnClickListener(this)
 
-
     }
 
     override fun onClick(v: View) {
@@ -68,23 +58,37 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     }
 
     private fun onSaveClick(view: View){
-        val name=edit_name_field.text.toString()
-        val nickname=edit_nickname_field.text.toString()
-        if(!TextUtils.isEmpty(name)){
-            user.name=name
-        }
-        if(!TextUtils.isEmpty(nickname)){
-            user.nickname=nickname
-        }
-        user.save()
+        val name : String = edit_name_field.text.toString()
+        val nickname : String = edit_nickname_field.text.toString()
 
-        name_field.text=user.name
-        nickname_field.text=user.nickname
-        nickname_switcher.showPrevious()
-        name_switcher.showPrevious()
-        edit_profile_button_switcher.showPrevious()
+        if (validateUserForm()) {
+            user.save()
+            user.name = name
+            user.nickname = nickname
+            name_field.text = user.name
+            nickname_field.text = user.nickname
 
+            nickname_switcher.showPrevious()
+            name_switcher.showPrevious()
+            edit_profile_button_switcher.showPrevious()
+        }
     }
 
+    private fun validateUserForm() : Boolean{
+        var valid = true
+
+        val name : String = edit_name_field.text.toString()
+        val nickname : String = edit_nickname_field.text.toString()
+
+        if(TextUtils.isEmpty(name)){
+            edit_name_field.error = "Required"
+            valid = false
+        }
+        if(TextUtils.isEmpty(nickname)){
+            edit_nickname_field.error = "Required"
+            valid = false
+        }
+        return valid
+    }
 
 }
