@@ -14,8 +14,6 @@ import androidx.fragment.app.Fragment
 import com.example.ringz.R
 import com.example.ringz.models.Home
 import kotlinx.android.synthetic.main.fragment_home.*
-import android.widget.CompoundButton
-import android.widget.Toast
 
 
 /**
