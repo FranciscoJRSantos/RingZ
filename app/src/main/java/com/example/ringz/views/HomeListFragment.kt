@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.ringz.R
-import kotlinx.android.synthetic.main.fragment_home_list.*
+import kotlinx.android.synthetic.main.fragment_add_home.*
 
 class HomeListFragment : Fragment(), View.OnClickListener {
     private lateinit var mainActivity : MainActivity
@@ -22,12 +22,12 @@ class HomeListFragment : Fragment(), View.OnClickListener {
     override fun onStart() {
         super.onStart()
 
-        addHouse.setOnClickListener(this)
+        add_house_button.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
         when(v.id) {
-            R.id.addHouse -> mainActivity.renderFragment(AddHomeFragment())
+            R.id.add_house_button -> mainActivity.renderFragment(AddHomeFragment())
         }
 
     }

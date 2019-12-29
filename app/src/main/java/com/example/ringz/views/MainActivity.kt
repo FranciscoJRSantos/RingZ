@@ -95,6 +95,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     renderFragment(HomeListFragment())
                 }
             }
+            R.id.nav_visit -> renderFragment(HomeVisitorListFragment())
         }
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
@@ -126,8 +127,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     fun hasLoaded() {
-        if (user != null && home != null) {
-            renderFragment(DashboardFragment())
+        if (user != null && user?.houseId != null) {
+            if (home != null) {
+                renderFragment(HomeVisitorListFragment())
+            }
         }
+        else if (user != null) {
+            renderFragment(HomeVisitorListFragment())
+        }
+
     }
 }
