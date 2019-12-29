@@ -2,8 +2,10 @@ package com.example.ringz.views
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -13,13 +15,12 @@ import com.example.ringz.models.Home
 import com.example.ringz.models.User
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    public lateinit var auth: FirebaseAuth
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
+    private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
     private lateinit var userRef : DatabaseReference
     private lateinit var homeRef : DatabaseReference
@@ -35,7 +36,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         userRef = database.getReference("users").child(auth.currentUser?.uid!!)
         homeRef = database.getReference("homes").child(auth.currentUser?.uid!!)
 
+        val headerButton = nav_view.getHeaderView(0).findViewById<Button>(R.id.nav_header_button)
         nav_view.setNavigationItemSelectedListener(this)
+        headerButton.setOnClickListener(this)
+        nav_logout.setOnClickListener(this)
+
 
         val toggle = ActionBarDrawerToggle( this, drawer_layout,
             R.string.navigation_drawer_open,
@@ -48,6 +53,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onStart() {
         super.onStart()
 
+        renderFragment(LoadingFragment())
+
         val userListener = object : ValueEventListener {
             override fun onCancelled(databaseError: DatabaseError) {
                 user = null
@@ -55,6 +62,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             override fun onDataChange(databaseSnapshot: DataSnapshot) {
                 user = databaseSnapshot.getValue(User::class.java)
+                hasLoaded()
             }
         }
 
@@ -65,8 +73,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             override fun onDataChange(databaseSnapshot: DataSnapshot) {
                 home = databaseSnapshot.getValue(Home::class.java)
+                hasLoaded()
             }
         }
+
+        supportFragmentManager.beginTransaction().replace(R.id.header_container, HeaderFragment()).commit()
 
         homeRef.addListenerForSingleValueEvent(homeListener)
         userRef.addListenerForSingleValueEvent(userListener)
@@ -84,7 +95,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     renderFragment(HomeListFragment())
                 }
             }
-            R.id.nav_logout -> logOut()
         }
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
@@ -106,5 +116,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     fun renderFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit()
+    }
+
+    override fun onClick(v: View) {
+        when(v.id) {
+            R.id.nav_logout -> logOut()
+            R.id.nav_header_button -> drawer_layout.closeDrawer(Gravity.LEFT)
+        }
+    }
+
+    fun hasLoaded() {
+        if (user != null && home != null) {
+            renderFragment(DashboardFragment())
+        }
     }
 }

@@ -27,10 +27,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     private lateinit var mainActivity: MainActivity
     private lateinit var user: User
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
         // Inflate the layout for this fragment
         mainActivity=this.activity as MainActivity
         user= mainActivity.user!!

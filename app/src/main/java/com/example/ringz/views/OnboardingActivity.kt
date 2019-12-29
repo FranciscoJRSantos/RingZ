@@ -21,6 +21,8 @@ class OnboardingActivity : AppCompatActivity(), View.OnClickListener {
         // Buttons
         register_button.setOnClickListener(this)
         login_button.setOnClickListener(this)
+
+        presentation_layout.visibility = View.VISIBLE
     }
 
     override fun onStart() {
@@ -39,10 +41,12 @@ class OnboardingActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     fun onRegisterClick(view: View?) {
+        presentation_layout.visibility = View.GONE
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, RegisterFragment()).commit()
     }
 
     fun onLoginClick(view: View?) {
+        presentation_layout.visibility = View.GONE
         supportFragmentManager.beginTransaction().replace( R.id.fragment_container, LoginFragment()).commit()
     }
 

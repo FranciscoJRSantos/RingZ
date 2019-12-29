@@ -17,4 +17,12 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="FontSyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily"> @font/poppins_black </item>
+    </style>
+    
+    <style name="NavigationDrawerStyle">
+        <item name="android:textSize">24sp</item>
+        <item name="android:paddingBottom">8sp</item>
+    </style>
 </resources>
