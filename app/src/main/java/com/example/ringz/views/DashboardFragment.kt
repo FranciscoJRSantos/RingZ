@@ -2,43 +2,39 @@ package com.example.ringz.views
 
 
 import android.os.Bundle
-import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.GravityCompat
+
 import com.example.ringz.R
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_header.*
+import com.example.ringz.models.Home
+import kotlinx.android.synthetic.main.fragment_dashboard.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class HeaderFragment : Fragment(), View.OnClickListener {
+class DashboardFragment : Fragment() {
     private lateinit var mainActivity: MainActivity
+    private lateinit var home: Home
 
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
         // Inflate the layout for this fragment
-        mainActivity = this.activity as MainActivity
+        val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
 
-        return inflater.inflate(R.layout.fragment_header, container, false)
+        mainActivity = this.activity as MainActivity
+        home = mainActivity.home!!
+
+        return view
     }
 
     override fun onStart() {
         super.onStart()
 
-        header_button.setOnClickListener(this)
-    }
+        val status = if (home.openStatus) "aberta" else "fechada"
+        val statusText = "Neste momento, a sua casa encontra-se $status"
 
-    private fun openDrawer() {
-        mainActivity.drawer_layout.openDrawer(Gravity.LEFT)
-    }
-
-    override fun onClick(v: View) {
-        when(v.id) {
-            R.id.header_button -> openDrawer()
-        }
+        status_text.text = statusText
     }
 
 
