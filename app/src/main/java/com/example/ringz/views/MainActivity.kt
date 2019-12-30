@@ -2,7 +2,6 @@ package com.example.ringz.views
 
 import android.content.Intent
 import android.os.Bundle
-import android.renderscript.Sampler
 import android.view.Gravity
 import android.view.MenuItem
 import android.view.View

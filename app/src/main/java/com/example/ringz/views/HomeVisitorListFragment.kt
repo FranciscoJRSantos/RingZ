@@ -45,7 +45,7 @@ class HomeVisitorListFragment : Fragment(), View.OnClickListener, AdapterView.On
             )
 
             houses_list.adapter = adapter
-            houses_list.setOnItemClickListener(this)
+            houses_list.onItemClickListener = this
         }
 
 

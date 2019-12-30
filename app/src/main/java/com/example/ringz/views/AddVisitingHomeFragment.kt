@@ -63,11 +63,12 @@ class AddVisitingHomeFragment: Fragment(), View.OnClickListener {
 
             override fun onDataChange(databaseSnapshot: DataSnapshot) {
                 home = databaseSnapshot.getValue(Home::class.java)
-                Log.d("status",home!!.name)
                 user.addHouseToVisit(home!!)
+                mainActivity.renderFragment(HomeVisitorListFragment())
             }
         }
 
         homeRef.addListenerForSingleValueEvent(homeListener)
+        mainActivity.renderFragment(LoadingFragment())
     }
 }
