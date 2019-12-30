@@ -33,6 +33,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
     private lateinit var userRef : DatabaseReference
     private var newUser: User?=null
 
+
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
@@ -43,6 +44,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         mainActivity = this.activity as MainActivity
         home = mainActivity.home
         database = FirebaseDatabase.getInstance()
+
         homeRef = database.getReference("homes")
 
         return view
@@ -78,6 +80,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         add_member.setOnClickListener(this)
         copy_code_button.setOnClickListener(this)
         save_newMember_button.setOnClickListener(this)
+        cancel_newMember_button.setOnClickListener(this)
         toggle_state.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 onToggleChange(isChecked)
@@ -110,6 +113,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         mainActivity.user!!.removeHouse()
         home?.delete()
         mainActivity.renderFragment(ProfileFragment())
+
     }
 
     private fun onToggleChange(isChecked : Boolean) {
@@ -129,6 +133,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
             R.id.copy_code_button -> copyToClipboard(v)
             R.id.add_member -> addMember(v)
             R.id.save_newMember_button -> inviteMember(v)
+            R.id.cancel_newMember_button -> addMember(v)
         }
     }
 
@@ -152,12 +157,10 @@ class HomeFragment : Fragment(), View.OnClickListener {
         userRef.addListenerForSingleValueEvent(userListener)
 
         member_switcher.showPrevious()
-        add_member_switcher.showPrevious()
     }
 
     private fun addMember(view: View) {
         member_switcher.showNext()
-        add_member_switcher.showNext()
     }
 
     private fun dismissKeyboard() {
