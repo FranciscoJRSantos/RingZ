@@ -35,6 +35,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
+        database = FirebaseDatabase.getInstance()
+
 
         mainActivity = this.activity as MainActivity
         home = mainActivity.home
@@ -54,6 +56,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         remove_house.setOnClickListener(this)
         add_member.setOnClickListener(this)
         copy_code_button.setOnClickListener(this)
+        save_newMember_button.setOnClickListener(this)
         toggle_state.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 onToggleChange(isChecked)
@@ -122,15 +125,20 @@ class HomeFragment : Fragment(), View.OnClickListener {
             override fun onDataChange(databaseSnapshot: DataSnapshot) {
                 newUser = databaseSnapshot.getValue(User::class.java)!!
                 if(newUser!!.houseId!=null)
+                    Toast.makeText(mainActivity, "Invited new user", Toast.LENGTH_SHORT)
                     newUser!!.attachHouse(home!!.uuid)
             }
         }
 
         userRef.addListenerForSingleValueEvent(userListener)
+
+        member_switcher.showPrevious()
+        add_member_switcher.showPrevious()
     }
 
     private fun addMember(view: View) {
         member_switcher.showNext()
+        add_member_switcher.showNext()
     }
 
     private fun dismissKeyboard() {

@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         database = FirebaseDatabase.getInstance()
         firebaseMessaging = FirebaseMessaging.getInstance()
         userRef = database.getReference("users").child(auth.currentUser?.uid!!)
-        homeRef = database.getReference("homes").child(auth.currentUser?.uid!!)
+        homeRef = database.getReference("homes")
         notificationsRef = database.getReference("notifications")
 
         val headerButton = nav_view.getHeaderView(0).findViewById<Button>(R.id.nav_header_button)
@@ -61,17 +61,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         renderFragment(LoadingFragment())
 
-        val userListener = object : ValueEventListener {
-            override fun onCancelled(databaseError: DatabaseError) {
-                user = null
-            }
-
-            override fun onDataChange(databaseSnapshot: DataSnapshot) {
-                user = databaseSnapshot.getValue(User::class.java)
-                hasLoaded()
-            }
-        }
-
         val homeListener = object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -84,9 +73,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
         }
 
+
+        val userListener = object : ValueEventListener {
+            override fun onCancelled(databaseError: DatabaseError) {
+                user = null
+            }
+
+            override fun onDataChange(databaseSnapshot: DataSnapshot) {
+                user = databaseSnapshot.getValue(User::class.java)
+                homeRef.child(user!!.houseId.toString()).addListenerForSingleValueEvent(homeListener)
+                hasLoaded()
+            }
+        }
+
         supportFragmentManager.beginTransaction().replace(R.id.header_container, HeaderFragment()).commit()
 
-        homeRef.addListenerForSingleValueEvent(homeListener)
         userRef.addListenerForSingleValueEvent(userListener)
     }
 
