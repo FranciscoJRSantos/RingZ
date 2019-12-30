@@ -11,11 +11,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.ringz.R
 import com.example.ringz.models.Home
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
@@ -24,6 +27,8 @@ import kotlinx.android.synthetic.main.fragment_home.*
  */
 class HomeFragment : Fragment(), View.OnClickListener {
     private lateinit var mainActivity: MainActivity
+    private lateinit var homeRef : DatabaseReference
+    private lateinit var database: FirebaseDatabase
     private var home: Home? = null
 
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
@@ -32,15 +37,34 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
         mainActivity = this.activity as MainActivity
         home = mainActivity.home
+        database = FirebaseDatabase.getInstance()
+        homeRef = database.getReference("homes")
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        Log.d("bosta",home!!.visitorsNames.toString())
+
+        if (home!!.visitorsNames.isNotEmpty()) {
+
+            val adapter = ArrayAdapter(
+                mainActivity,
+                android.R.layout.simple_list_item_1,
+                home!!.visitorsNames
+            )
+
+            visitors_list.adapter = adapter
+        }
     }
 
     override fun onStart() {
         super.onStart()
 
         house_name.text = home?.name
-        house_name_field.text = Editable.Factory.getInstance().newEditable(home?.name);
+        house_name_field.text = Editable.Factory.getInstance().newEditable(home?.name)
         house_code.text = home?.uuid
 
         edit_name_button.setOnClickListener(this)
@@ -109,10 +133,10 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
 
     private fun showKeyboard(editTextField: EditText) {
-        editTextField.requestFocus();
+        editTextField.requestFocus()
         editTextField.postDelayed({
             val keyboard: InputMethodManager = mainActivity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            keyboard.showSoftInput(editTextField,0);
+            keyboard.showSoftInput(editTextField,0)
         }, 200)
     }
 
