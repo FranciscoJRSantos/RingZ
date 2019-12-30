@@ -27,10 +27,11 @@ class AddHomeFragment : Fragment(), View.OnClickListener {
         cancel_button.setOnClickListener(this)
     }
 
-    fun createHouse(name : String) {
+    private fun createHouse(name : String) {
         var home : Home = Home(mainActivity.user?.uid!!, name)
         home.save()
-        mainActivity.user!!.attachHouse(home.uuid)
+        mainActivity.user = mainActivity.user!!.attachHouse(home.uuid)
+        mainActivity.home = home
         mainActivity.renderFragment(HomeListFragment())
     }
 

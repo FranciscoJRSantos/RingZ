@@ -21,14 +21,15 @@ class User(uid: String, name: String, email: String, nickname: String) {
 
     constructor() : this("", "", "", "")
 
-    fun save() {
+    fun save() : User {
         val database = FirebaseDatabase.getInstance()
         val usersRef = database.getReference("users")
 
         usersRef.child(uid).setValue(this)
+        return this
     }
 
-    fun attachHouse(houseId: String) {
+    fun attachHouse(houseId: String) : User {
 
         this.houseId = houseId
 
@@ -36,6 +37,7 @@ class User(uid: String, name: String, email: String, nickname: String) {
         val usersRef = database.getReference("users")
 
         usersRef.child(uid).setValue(this)
+        return this
     }
 
     fun deleteUser(){
