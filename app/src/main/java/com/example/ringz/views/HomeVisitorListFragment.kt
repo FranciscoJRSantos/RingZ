@@ -35,13 +35,11 @@ class HomeVisitorListFragment : Fragment(), View.OnClickListener, AdapterView.On
         if (user.houseList.isNotEmpty()) {
 
             val listNames = user.houseList.map { home -> home.name }
-            val listStatus = user.houseList.map { home -> home.openStatus }
             val listHouses = user.houseList.map { home -> home.uuid }
 
             val adapter = HouseListAdapter(
                 mainActivity,
                 listNames,
-                listStatus,
                 listHouses,
                 user.houseList
             )

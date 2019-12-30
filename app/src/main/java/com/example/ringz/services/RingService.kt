@@ -21,7 +21,7 @@ class RingService : FirebaseMessagingService() {
         if (remoteMessage.notification != null) {
             Log.d(TAG, "Message Notification Body: " + remoteMessage.notification!!.body )
         }
-        sendNotification(remoteMessage.from.toString(), remoteMessage.notification!!.body.toString())
+        sendNotification(remoteMessage.notification!!.title.toString(), remoteMessage.notification!!.body.toString())
     }
 
     private fun sendNotification( notificationTitle: String, notificationBody: String ) {
@@ -33,7 +33,6 @@ class RingService : FirebaseMessagingService() {
         )
         val defaultSoundUri: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val notificationBuilder: NotificationCompat.Builder = NotificationCompat.Builder(this)
-            .setAutoCancel(true) //Automatically delete the notification
             .setSmallIcon(R.drawable.ic_notification_overlay) //Notification icon
             .setContentIntent(pendingIntent)
             .setContentTitle(notificationTitle)

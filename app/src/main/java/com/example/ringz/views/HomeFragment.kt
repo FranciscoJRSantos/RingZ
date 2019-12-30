@@ -83,7 +83,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
 
     private fun onToggleChange(isChecked : Boolean) {
-        home?.toggleState(isChecked)
+        mainActivity.home = home?.toggleState(isChecked)
         if(isChecked) {
             Toast.makeText(mainActivity.baseContext, "Casa Aberta.", Toast.LENGTH_LONG).show()
         } else {
