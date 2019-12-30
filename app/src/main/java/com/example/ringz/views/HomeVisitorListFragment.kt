@@ -47,9 +47,6 @@ class HomeVisitorListFragment : Fragment(), View.OnClickListener, AdapterView.On
             houses_list.adapter = adapter
             houses_list.onItemClickListener = this
         }
-
-
-
     }
 
     override fun onStart() {

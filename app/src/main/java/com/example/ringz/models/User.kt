@@ -67,6 +67,5 @@ class User(uid: String, name: String, email: String, nickname: String) {
         val usersRef = database.getReference("users")
         this.houseList = newList
         usersRef.child(uid).child("houseList").setValue(this.houseList)
-
     }
 }

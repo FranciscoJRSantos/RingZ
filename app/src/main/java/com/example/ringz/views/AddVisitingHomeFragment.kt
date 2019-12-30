@@ -33,7 +33,7 @@ class AddVisitingHomeFragment: Fragment(), View.OnClickListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val  view = inflater.inflate(R.layout.fragment_add_homevisitor, container, false)
         mainActivity = this.activity as MainActivity
-        user= mainActivity.user!!
+        user = mainActivity.user!!
         database = FirebaseDatabase.getInstance()
         homeRef = database.getReference("homes")
         return view
@@ -64,6 +64,7 @@ class AddVisitingHomeFragment: Fragment(), View.OnClickListener {
             override fun onDataChange(databaseSnapshot: DataSnapshot) {
                 home = databaseSnapshot.getValue(Home::class.java)
                 user.addHouseToVisit(home!!)
+                home!!.addVisitorToHouse(home!!.uuid, user.name.toString())
                 mainActivity.renderFragment(HomeVisitorListFragment())
             }
         }
