@@ -151,9 +151,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     fun ringBell(houseID: String) {
-        Toast.makeText(this, "BZZZZZZZZ", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "...a tocar à campainha", Toast.LENGTH_LONG).show()
 
-        val notification = Notification(houseID, user?.nickname.toString(), " quer entrar na tua casa")
+        val notification = Notification(houseID, user?.nickname.toString(), "Tocou à campainha")
         notification.save()
+        notification.delete()
     }
 }
