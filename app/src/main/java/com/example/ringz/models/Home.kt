@@ -41,6 +41,6 @@ class Home(uuid: String, name: String) {
 
 
         this.visitorsNames = this.visitorsNames.plus(visitingUser)
-        homeRef.child(visitingHouseUuid).child("visitorsList").setValue(this.visitorsNames)
+        homeRef.child(visitingHouseUuid).child("visitorsNames").setValue(this.visitorsNames)
     }
 }
