@@ -121,7 +121,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
             override fun onDataChange(databaseSnapshot: DataSnapshot) {
                 newUser = databaseSnapshot.getValue(User::class.java)!!
-                newUser!!.attachHouse(home!!.uuid)
+                if(newUser!!.houseId!=null)
+                    newUser!!.attachHouse(home!!.uuid)
             }
         }
 
