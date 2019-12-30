@@ -23,11 +23,12 @@ class Home(uuid: String, name: String) {
         homesRef.child(uuid).setValue(null)
     }
 
-    fun toggleState(isChecked : Boolean) {
+    fun toggleState(isChecked : Boolean) : Home{
         val database = FirebaseDatabase.getInstance()
         val homesRef = database.getReference("homes")
 
         this.openStatus = isChecked
         homesRef.child(uuid).setValue(this)
+        return this
     }
 }

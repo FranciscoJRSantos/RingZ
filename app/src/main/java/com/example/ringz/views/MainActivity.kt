@@ -2,6 +2,7 @@ package com.example.ringz.views
 
 import android.content.Intent
 import android.os.Bundle
+import android.renderscript.Sampler
 import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
@@ -153,8 +154,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     fun ringBell(houseID: String) {
         Toast.makeText(this, "...a tocar à campainha", Toast.LENGTH_LONG).show()
 
-        val notification = Notification(houseID, user?.nickname.toString(), "Tocou à campainha")
-        notification.save()
-        notification.delete()
+        val ringingHouseRef = database.getReference("homes").child(houseID)
+        var ringingHouse : Home? = null
+
+        val ringingHomeListener = object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                ringingHouse = dataSnapshot.getValue(Home::class.java)
+                if (ringingHouse!!.openStatus) {
+                    val notification = Notification(houseID, user?.nickname.toString(), "Tocou à campainha")
+                    notification.save()
+                    notification.delete()
+                }
+            }
+        }
+
+        ringingHouseRef.addListenerForSingleValueEvent(ringingHomeListener)
+
     }
 }
