@@ -41,8 +41,6 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         edit_account_button.setOnClickListener(this)
         save_account_button.setOnClickListener(this)
         delete_account_button.setOnClickListener(this)
-
-
     }
 
     override fun onClick(v: View) {
@@ -61,12 +59,11 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         nickname_switcher.showNext()
         name_switcher.showNext()
         edit_profile_button_switcher.showNext()
-
     }
 
     private fun onSaveClick(view: View){
-        val name=edit_name_field.text.toString()
-        val nickname=edit_nickname_field.text.toString()
+        val name= edit_name_field.text.toString()
+        val nickname= edit_nickname_field.text.toString()
         if(!TextUtils.isEmpty(name)){
             user.name=name
         }
@@ -80,8 +77,5 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         nickname_switcher.showPrevious()
         name_switcher.showPrevious()
         edit_profile_button_switcher.showPrevious()
-
     }
-
-
 }

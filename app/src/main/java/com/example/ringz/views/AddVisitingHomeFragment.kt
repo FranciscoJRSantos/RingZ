@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import android.content.SharedPreferences
 import android.util.Log
+import android.widget.Toast
 import com.example.ringz.models.Home
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.AuthCredential
@@ -54,22 +55,36 @@ class AddVisitingHomeFragment: Fragment(), View.OnClickListener {
     }
 
     private fun addVisitHouse(houseCode: String) {
-        this.homeRef = homeRef.child(houseCode)
 
-        val homeListener = object : ValueEventListener {
-            override fun onCancelled(databaseError: DatabaseError) {
-                Log.e("Listener Cancelled", databaseError.message)
+        if (validateForm()) {
+            this.homeRef = homeRef.child(houseCode)
+
+            val homeListener = object : ValueEventListener {
+                override fun onCancelled(databaseError: DatabaseError) {
+                    Log.e("Listener Cancelled", databaseError.message)
+                }
+
+                override fun onDataChange(databaseSnapshot: DataSnapshot) {
+                    home = databaseSnapshot.getValue(Home::class.java)
+                    user.addHouseToVisit(home!!)
+                    home!!.addVisitorToHouse(home!!.uuid, user.name.toString())
+                    mainActivity.renderFragment(HomeVisitorListFragment())
+                }
             }
 
-            override fun onDataChange(databaseSnapshot: DataSnapshot) {
-                home = databaseSnapshot.getValue(Home::class.java)
-                user.addHouseToVisit(home!!)
-                home!!.addVisitorToHouse(home!!.uuid, user.name.toString())
-                mainActivity.renderFragment(HomeVisitorListFragment())
-            }
+            homeRef.addListenerForSingleValueEvent(homeListener)
+            mainActivity.renderFragment(LoadingFragment())
         }
+    }
 
-        homeRef.addListenerForSingleValueEvent(homeListener)
-        mainActivity.renderFragment(LoadingFragment())
+    fun validateForm() : Boolean {
+        var valid = true
+        val houseCodeField : String = house_code_field.text.toString()
+        if (TextUtils.isEmpty(houseCodeField)) {
+            house_code_field.error = "Required"
+            valid = false
+        }
+        return valid
+
     }
 }

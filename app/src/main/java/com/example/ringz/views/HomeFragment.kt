@@ -85,8 +85,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 onToggleChange(isChecked)
             }
         }
-
-
     }
 
     private fun onHouseEditClick(view : View) {
