@@ -28,7 +28,7 @@
             android:layout_marginTop="40dp"
             android:background="@drawable/transparent_bg_bordered_confirm"
             android:fontFamily="@font/poppins_medium"
-            android:padding="10sp"
+            android:padding="15dp"
             android:text="Criar Casa"
             android:textColor="@color/confirmColor"
             android:textSize="18sp" />
