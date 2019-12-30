@@ -29,18 +29,6 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="21dp"
-                android:layout_marginLeft="21dp"
-                android:layout_marginTop="5dp"
-                android:text="description"
-                android:textColor="@color/confirmColor"
-                android:fontFamily="@font/poppins_medium"
-                android:textSize="18sp" />
-
         </LinearLayout>
 
         <Space
