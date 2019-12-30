@@ -11,7 +11,6 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_black"
         android:paddingStart="21sp"
-        android:paddingTop="88sp"
         android:paddingEnd="21sp"
         android:paddingBottom="20sp"
         android:text="Apagar a minha conta"
@@ -38,8 +37,8 @@
         android:ems="10"
         android:fontFamily="@font/poppins_medium"
         android:inputType="textEmailAddress"
-        android:paddingStart="21sp"
-        android:paddingEnd="21sp"
+        android:layout_marginLeft="21sp"
+        android:layout_marginRight="21sp"
         android:paddingBottom="8sp"
         android:textColor="@color/secondaryColor"
         android:textSize="18sp" />
@@ -63,8 +62,8 @@
         android:ems="10"
         android:fontFamily="@font/poppins_medium"
         android:inputType="textPassword"
-        android:paddingStart="21sp"
-        android:paddingEnd="21sp"
+        android:layout_marginLeft="21sp"
+        android:layout_marginRight="21sp"
         android:paddingBottom="8sp"
         android:textColor="@color/secondaryColor"
         android:textSize="18sp" />
@@ -78,6 +77,7 @@
         android:fontFamily="@font/poppins_medium"
         android:layout_marginTop="270sp"
         android:text="Apagar"
+        android:padding="15dp"
         android:textColor="@color/confirmColor"
         android:textSize="18sp" />
 

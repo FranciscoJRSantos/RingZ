@@ -1,14 +1,18 @@
 package com.example.ringz.views
 
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import android.os.Bundle
 import android.text.Editable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.ringz.R
 import com.example.ringz.models.Home
@@ -41,6 +45,16 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
         edit_name_button.setOnClickListener(this)
         save_name_button.setOnClickListener(this)
+        remove_house.setOnClickListener(this)
+        copy_code_button.setOnClickListener(this)
+        toggle_state.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                onToggleChange(isChecked)
+            } else {
+                onToggleChange(isChecked)
+            }
+        }
+
     }
 
     private fun onHouseEditClick(view : View) {
@@ -62,10 +76,27 @@ class HomeFragment : Fragment(), View.OnClickListener {
         showKeyboard(house_name_field)
     }
 
+    private fun onHouseDeleteClick(view: View) {
+        mainActivity.user!!.removeHouse()
+        home?.delete()
+        mainActivity.renderFragment(ProfileFragment())
+    }
+
+    private fun onToggleChange(isChecked : Boolean) {
+        home?.toggleState(isChecked)
+        if(isChecked) {
+            Toast.makeText(mainActivity.baseContext, "Casa Aberta.", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(mainActivity.baseContext, "Casa Fechada.", Toast.LENGTH_LONG).show()
+        }
+    }
+
     override fun onClick(v: View) {
         when(v.id) {
             R.id.edit_name_button -> onHouseNameClick(v)
             R.id.save_name_button -> onHouseEditClick(v)
+            R.id.remove_house -> onHouseDeleteClick(v)
+            R.id.copy_code_button -> copyToClipboard(v)
         }
     }
 
@@ -83,5 +114,12 @@ class HomeFragment : Fragment(), View.OnClickListener {
             val keyboard: InputMethodManager = mainActivity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             keyboard.showSoftInput(editTextField,0);
         }, 200)
+    }
+
+    private fun copyToClipboard(view : View) {
+        var clipboard = context!!.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clip : ClipData = ClipData.newPlainText("copied code", house_code.text.toString())
+        clipboard.setPrimaryClip(clip)
+        Toast.makeText(mainActivity.baseContext, "Código copiado.", Toast.LENGTH_LONG).show()
     }
 }

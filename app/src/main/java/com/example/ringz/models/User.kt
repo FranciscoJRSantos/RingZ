@@ -45,13 +45,27 @@ class User(uid: String, name: String, email: String, nickname: String) {
         usersRef.child(uid).setValue(null)
     }
 
+    fun removeHouse() {
+        val database = FirebaseDatabase.getInstance()
+        val usersRef = database.getReference("users")
+
+        this.houseId = null
+        usersRef.child(uid).setValue(this)
+    }
+
     fun addHouseToVisit(visitingHouse: Home){
-        Log.d("status", "andamento nisto")
         val database = FirebaseDatabase.getInstance()
         val usersRef = database.getReference("users")
 
 
         this.houseList = this.houseList.plus(visitingHouse)
+        usersRef.child(uid).child("houseList").setValue(this.houseList)
+    }
+
+    fun updateHouseList(newList: List<Home>){
+        val database = FirebaseDatabase.getInstance()
+        val usersRef = database.getReference("users")
+        this.houseList = newList
         usersRef.child(uid).child("houseList").setValue(this.houseList)
 
     }

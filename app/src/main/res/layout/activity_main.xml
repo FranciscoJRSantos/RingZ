@@ -58,8 +58,6 @@
                 android:textSize="18sp"
                 android:textColor="@color/cancelColor"
                 android:text="Log out" />
-
         </LinearLayout>
     </com.google.android.material.navigation.NavigationView>
-
 </androidx.drawerlayout.widget.DrawerLayout>
