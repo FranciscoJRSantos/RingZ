@@ -18,8 +18,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_black"
             android:paddingStart="21sp"
+            android:paddingTop="50dp"
             android:paddingEnd="21sp"
-            android:paddingTop="88sp"
             android:paddingBottom="20sp"
             android:text="Criar Conta"
             android:textColor="@color/secondaryColor"
@@ -45,8 +45,8 @@
             android:ems="10"
             android:fontFamily="@font/poppins_medium"
             android:inputType="textEmailAddress"
-            android:paddingStart="21sp"
-            android:paddingEnd="21sp"
+            android:layout_marginLeft="21sp"
+            android:layout_marginRight="21sp"
             android:paddingBottom="8sp"
             android:textColor="@color/secondaryColor"
             android:textSize="18sp" />
@@ -70,8 +70,8 @@
             android:ems="10"
             android:fontFamily="@font/poppins_medium"
             android:inputType="textPersonName"
-            android:paddingStart="21sp"
-            android:paddingEnd="21sp"
+            android:layout_marginLeft="21sp"
+            android:layout_marginRight="21sp"
             android:paddingBottom="8sp"
             android:textColor="@color/secondaryColor"
             android:textSize="18sp" />
@@ -95,8 +95,8 @@
             android:ems="10"
             android:fontFamily="@font/poppins_medium"
             android:inputType="textPersonName"
-            android:paddingStart="21sp"
-            android:paddingEnd="21sp"
+            android:layout_marginLeft="21sp"
+            android:layout_marginRight="21sp"
             android:paddingBottom="8sp"
             android:textColor="@color/secondaryColor"
             android:textSize="18sp" />
@@ -120,8 +120,8 @@
             android:ems="10"
             android:fontFamily="@font/poppins_medium"
             android:inputType="textPassword"
-            android:paddingStart="21sp"
-            android:paddingEnd="21sp"
+            android:layout_marginLeft="21sp"
+            android:layout_marginRight="21sp"
             android:paddingBottom="8sp"
             android:textColor="@color/secondaryColor"
             android:textSize="18sp" />
@@ -145,8 +145,8 @@
             android:ems="10"
             android:fontFamily="@font/poppins_medium"
             android:inputType="textPassword"
-            android:paddingStart="21sp"
-            android:paddingEnd="21sp"
+            android:layout_marginLeft="21sp"
+            android:layout_marginRight="21sp"
             android:paddingBottom="8sp"
             android:textSize="18sp" />
 
@@ -159,6 +159,7 @@
             android:background="@drawable/confirm_button"
             android:fontFamily="@font/poppins_medium"
             android:text="Criar conta"
+            android:padding="15dp"
             android:textColor="@color/confirmColor"
             android:textSize="18sp" />
 
@@ -170,6 +171,7 @@
             android:background="@drawable/disabled_button"
             android:fontFamily="@font/poppins_medium"
             android:text="Entrar"
+            android:padding="15dp"
             android:textColor="@color/disabledColor"
             android:textSize="18sp" />
 

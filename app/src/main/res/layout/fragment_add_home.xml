@@ -8,7 +8,6 @@
         android:fontFamily="@font/poppins_black"
         android:paddingStart="21sp"
         android:paddingEnd="21sp"
-        android:paddingTop="88sp"
         android:paddingBottom="20sp"
         android:text="Criar Casa"
         android:textColor="@color/secondaryColor"
@@ -35,8 +34,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:fontFamily="@font/poppins_medium"
-        android:paddingStart="21sp"
-        android:paddingEnd="21sp"
+        android:layout_marginLeft="21sp"
+        android:layout_marginRight="21sp"
         android:paddingBottom="8sp"
         android:textColor="@color/secondaryColor"
         android:textSize="18sp"
@@ -52,6 +51,7 @@
         android:background="@drawable/transparent_bg_bordered_confirm"
         android:fontFamily="@font/poppins_medium"
         android:text="Criar casa"
+        android:padding="15dp"
         android:textColor="@color/confirmColor"
         android:textSize="18sp" />
 
@@ -64,6 +64,7 @@
         android:background="@drawable/transparent_bg_bordered_cancel"
         android:fontFamily="@font/poppins_medium"
         android:text="Cancelar"
+        android:padding="15dp"
         android:textColor="@color/cancelColor"
         android:textSize="18sp" />
 </LinearLayout>

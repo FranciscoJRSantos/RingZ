@@ -6,9 +6,9 @@
     tools:context=".views.LoadingFragment">
 
     <ProgressBar
-        android:layout_width="match_parent"
+        android:layout_width="100dp"
         android:layout_height="match_parent"
-        android:background="@color/primaryColor"
         android:indeterminateTint="@color/secondaryColor"
+        android:layout_gravity="center_horizontal"
         />
 </FrameLayout>
