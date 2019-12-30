@@ -73,7 +73,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         if(!TextUtils.isEmpty(nickname)){
             user.nickname=nickname
         }
-        user.save()
+        mainActivity.user = user.save()
 
         name_field.text=user.name
         nickname_field.text=user.nickname
