@@ -40,7 +40,7 @@ class HomeVisitorListFragment : Fragment(), View.OnClickListener, AdapterView.On
             val listStatus = user.houseList.map { home -> home.openStatus }
             val listHouses = user.houseList.map {home -> home.uuid}
 
-            val adapter = MyListAdapter(mainActivity,listNames,listStatus,listHouses)
+            val adapter = MyListAdapter(mainActivity,listNames,listStatus,listHouses,user.houseList)
 
 
             houses_list.adapter = adapter

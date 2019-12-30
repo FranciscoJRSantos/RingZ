@@ -31,7 +31,7 @@ class AddHomeFragment : Fragment(), View.OnClickListener {
         var home : Home = Home(mainActivity.user?.uid!!, name)
         home.save()
         mainActivity.user!!.attachHouse(home.uuid)
-        mainActivity.renderFragment(ProfileFragment())
+        mainActivity.renderFragment(HomeListFragment())
     }
 
     override fun onClick(v: View) {

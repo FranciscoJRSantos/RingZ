@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import com.example.ringz.R
+import com.example.ringz.models.Home
+import com.example.ringz.models.User
 
-class MyListAdapter(private val context: Activity, private val title: List<String>, private val description: List<Boolean>, private val homeList: List<String>)
+class MyListAdapter(private val context: Activity, private val title: List<String>, private val description: List<Boolean>, private val homeList: List<String>, private var listOfHouses: List<Home>)
     : ArrayAdapter<String>(context, R.layout.custom_list, title) {
 
     override fun getView(position: Int, view: View?, parent: ViewGroup): View {
@@ -24,6 +26,15 @@ class MyListAdapter(private val context: Activity, private val title: List<Strin
         ringButton.setOnClickListener {
             Log.d("ringing","BZZZZZZZZZZZZZ")
             //ringBell(homeList[position])
+        }
+
+        val removeButton = rowView.findViewById(R.id.remove_house_button) as Button
+        removeButton.setOnClickListener {
+            val newList: List<Home>
+            newList = listOfHouses.minusElement(listOfHouses[position])
+            val mainActivity: MainActivity
+            mainActivity = this.context as MainActivity
+            mainActivity.user!!.updateHouseList(newList)
         }
 
         return rowView
