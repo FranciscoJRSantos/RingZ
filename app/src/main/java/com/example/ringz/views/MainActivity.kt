@@ -153,8 +153,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     fun ringBell(houseID: String) {
         Toast.makeText(this, "BZZZZZZZZ", Toast.LENGTH_LONG).show()
 
-        val notification = Notification(houseID, user?.uid.toString(), "I want to enter your house")
+        val notification = Notification(houseID, user?.nickname.toString(), " quer entrar na tua casa")
         notification.save()
-
     }
 }

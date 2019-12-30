@@ -19,7 +19,7 @@ class RingService : FirebaseMessagingService() {
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
 
         if (remoteMessage.notification != null) {
-            Log.d( TAG, "Message Notification Body: " + remoteMessage.notification!!.body )
+            Log.d(TAG, "Message Notification Body: " + remoteMessage.notification!!.body )
         }
         sendNotification(remoteMessage.from.toString(), remoteMessage.notification!!.body.toString())
     }

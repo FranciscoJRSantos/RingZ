@@ -11,6 +11,12 @@ class Notification(private val uid: String, val title: String, val body: String)
         val homesRef = database.getReference("notifications")
 
         homesRef.child(uid).setValue(this)
+    }
 
+    fun delete() {
+        val database = FirebaseDatabase.getInstance()
+        val homesRef= database.getReference("notifications")
+
+        homesRef.child(uid).setValue(null)
     }
 }
